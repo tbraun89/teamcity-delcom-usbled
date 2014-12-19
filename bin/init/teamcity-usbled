@@ -1,0 +1,54 @@
+#! /bin/bash
+# Author: Torsten Braun
+#
+# /etc/init.d/teamcity-usbled
+#
+### BEGIN INIT INFO
+# Provides: teamcity-usbled
+# Required-Start:
+# Should-Start:
+# Required-Stop:
+# Should-Stop:
+# Default-Start:  3 5
+# Default-Stop:   0 1 2 6
+# Short-Description: TeamCity USB Led
+# Description: Init Script for the TeamCity Delcom 807241 USB Led
+### END INIT INFO
+
+# TeamCity Delcom USB Led Daemon
+# Copyright (C) 2014  Torsten Braun
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+case "$1" in
+  start)
+    echo "Starting teamcity-usbled"
+    teamcity-usbled start
+    ;;
+  stop)
+    echo "Stopping teamcity-usbled"
+    teamcity-usbled stop
+    ;;
+  restart)
+    echo "Restarting teamcity-usbled"
+    teamcity-usbled restart
+    ;;
+  *)
+    echo "Usage: service teamcity-usbled {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0
